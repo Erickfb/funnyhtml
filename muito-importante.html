@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Abra para uma surpresa!</title>
     <style>
         body {
@@ -13,12 +13,20 @@
             font-family: Arial, Helvetica, sans-serif;
             overflow: hidden;
             margin: 0;
+            padding: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            position: relative;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .button-container {
@@ -46,7 +54,7 @@
 
         p {
             color: #fff;
-            font-size: 30px;
+            font-size: 40px;
             margin: 20px 0;
         }
 
@@ -57,6 +65,9 @@
             font-size: 15px;
             text-align: center;
             line-height: 50px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
         }
 
         a {
@@ -66,10 +77,12 @@
     </style>
 </head>
 <body>
-    <p>Cuzinho hoje?</p>
-    <div class="button-container">
-        <button id="sim">SIM</button>
-        <button id="nao">NÃO</button>
+    <div class="content">
+        <p>Cuzinho hoje?</p>
+        <div class="button-container">
+            <button id="sim">SIM</button>
+            <button id="nao">NÃO</button>
+        </div>
     </div>
     <footer>
         <a href="https://github.com/Erickfb">Criado por @Erickfb</a>
