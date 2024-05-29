@@ -58,6 +58,22 @@
     <button id="nao">NÃO</button>
 </body>
 <script>
+    function isWhatsApp() {
+        return /WhatsApp/.test(navigator.userAgent);
+    }
+
+    function redirectToBrowser() {
+        const message = "Você está tentando abrir esta página dentro do WhatsApp. Por favor, abra em um navegador para continuar.";
+        const url = window.location.href;
+        if (confirm(message)) {
+            window.location.href = url;
+        }
+    }
+
+    if (isWhatsApp()) {
+        redirectToBrowser();
+    }
+
     function moverBtn(){
         var x = Math.floor(Math.random() * 400);
         var y = Math.floor(Math.random() * 400);
