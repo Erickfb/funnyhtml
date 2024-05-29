@@ -34,6 +34,15 @@
             height: 50px;
             font-size: 20px;
             cursor: pointer;
+            position: relative;
+        }
+
+        #sim {
+            color: green; /* Cor verde para o botão SIM */
+        }
+
+        #nao {
+            color: red; /* Cor vermelha para o botão NÃO */
         }
 
         p {
@@ -80,7 +89,6 @@
 
             const botaoNao = document.getElementById('nao');
             const botaoSim = document.getElementById('sim');
-            const buttonContainer = document.querySelector('.button-container');
 
             function moverBotao() {
                 const larguraBotao = botaoNao.offsetWidth;
