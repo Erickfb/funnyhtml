@@ -53,48 +53,36 @@
     <p>Cuzinho hoje?</p>
     <button id="sim">SIM</button>
     <footer>
-        <a href="https://github.com/Erickfb">Criado por @cr4zyXp</a>
+        <a href="https://github.com/Erickfb">Criado por @Erickfb</a>
     </footer>
     <button id="nao">NÃO</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (/WhatsApp/.test(navigator.userAgent)) {
+                const message = "Você está tentando abrir esta página dentro do WhatsApp. Por favor, abra em um navegador para continuar.";
+                if (confirm(message)) {
+                    window.location.href = window.location.href;
+                }
+            }
+
+            const btnNao = document.getElementById("nao");
+            const btnSim = document.getElementById("sim");
+
+            function moverBotao() {
+                const x = Math.min(Math.floor(Math.random() * 400), 300);
+                const y = Math.min(Math.floor(Math.random() * 400), 300);
+                btnNao.style.left = `${x}px`;
+                btnNao.style.top = `${y}px`;
+            }
+
+            btnNao.addEventListener("mouseover", moverBotao);
+            btnNao.addEventListener("click", moverBotao);
+
+            btnSim.addEventListener("click", () => {
+                window.location.href = "https://www.youtube.com/watch?v=orWnzqBA63w";
+            });
+        });
+    </script>
 </body>
-<script>
-    function isWhatsApp() {
-        return /WhatsApp/.test(navigator.userAgent);
-    }
-
-    function redirectToBrowser() {
-        const message = "Você está tentando abrir esta página dentro do WhatsApp. Por favor, abra em um navegador para continuar.";
-        const url = window.location.href;
-        if (confirm(message)) {
-            window.location.href = url;
-        }
-    }
-
-    if (isWhatsApp()) {
-        redirectToBrowser();
-    }
-
-    function moverBtn(){
-        var x = Math.floor(Math.random() * 400);
-        var y = Math.floor(Math.random() * 400);
-        if (x > 300) {
-            x = 300;
-        }
-        if (y > 300) {
-            y = 300;
-        }
-        console.log(x, y);
-        btn.style.left = x + "px";
-        btn.style.top = y + "px";
-    }
-
-    var btn = document.getElementById("nao");
-    btn.addEventListener("mouseover", moverBtn);
-    btn.addEventListener("click", moverBtn);
-
-    var btnSim = document.getElementById("sim");
-    btnSim.addEventListener("click", function() {
-        window.location.href = "https://www.youtube.com/watch?v=orWnzqBA63w";
-    });
-</script>
 </html>
