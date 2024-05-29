@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="./favicon.png">
     <title>Abra para uma surpresa!</title>
     <style>
         body {
@@ -18,6 +18,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
         }
 
         button {
@@ -28,7 +34,7 @@
             height: 50px;
             font-size: 20px;
             cursor: pointer;
-            position: absolute;
+            position: relative;
         }
 
         p {
@@ -56,8 +62,10 @@
 </head>
 <body>
     <p>Cuzinho hoje?</p>
-    <button id="sim">SIM</button>
-    <button id="nao">NÃO</button>
+    <div class="button-container">
+        <button id="sim">SIM</button>
+        <button id="nao">NÃO</button>
+    </div>
     <footer>
         <a href="https://github.com/Erickfb">Criado por @Erickfb</a>
     </footer>
@@ -81,6 +89,7 @@
                 const maxY = window.innerHeight - alturaBotao;
                 const x = Math.floor(Math.random() * maxX);
                 const y = Math.floor(Math.random() * maxY);
+                botaoNao.style.position = 'absolute';
                 botaoNao.style.left = `${x}px`;
                 botaoNao.style.top = `${y}px`;
             }
