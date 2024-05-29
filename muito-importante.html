@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Abra para uma surpresa!</title>
     <style>
         body {
@@ -34,7 +34,6 @@
             height: 50px;
             font-size: 20px;
             cursor: pointer;
-            position: relative;
         }
 
         p {
@@ -81,14 +80,23 @@
 
             const botaoNao = document.getElementById('nao');
             const botaoSim = document.getElementById('sim');
+            const buttonContainer = document.querySelector('.button-container');
 
             function moverBotao() {
                 const larguraBotao = botaoNao.offsetWidth;
                 const alturaBotao = botaoNao.offsetHeight;
-                const maxX = window.innerWidth - larguraBotao;
-                const maxY = window.innerHeight - alturaBotao;
-                const x = Math.floor(Math.random() * maxX);
-                const y = Math.floor(Math.random() * maxY);
+                const larguraTela = window.innerWidth;
+                const alturaTela = window.innerHeight;
+
+                let x, y;
+                do {
+                    x = Math.floor(Math.random() * (larguraTela - larguraBotao));
+                    y = Math.floor(Math.random() * (alturaTela - alturaBotao));
+                } while (
+                    (x >= botaoSim.offsetLeft - larguraBotao && x <= botaoSim.offsetLeft + botaoSim.offsetWidth) &&
+                    (y >= botaoSim.offsetTop - alturaBotao && y <= botaoSim.offsetTop + botaoSim.offsetHeight)
+                );
+
                 botaoNao.style.position = 'absolute';
                 botaoNao.style.left = `${x}px`;
                 botaoNao.style.top = `${y}px`;
